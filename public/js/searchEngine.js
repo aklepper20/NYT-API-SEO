@@ -1,7 +1,7 @@
 const searchBar = document.getElementById('search-bar');
 
 searchBar.addEventListener('keyup', (e) => {
-  const searchTarget = e.target.value;
+  const searchTarget = e.target.value.toLowerCase();
 
   const filteredArticles = newsArticles.filter((article) => {
     return (

@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', () => fetchAllArticles());
     fetch(baseUrl)
     .then((response) => response.json())
     .then((jsonData) => {
-      console.log(jsonData)
+      // console.log(jsonData)
       newsArticles = jsonData.results;
-      console.log(newsArticles)
       renderAllArticles(newsArticles)
     })
   };
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => fetchAllArticles());
     const row = document.getElementById('article-row')
      let results = articleArray.slice(0, 31);
     const html = results.map(renderSingleArticle).join('');
-    row.innerHTML = html;
+    (html) ? row.innerHTML = html : row.innerHTML = "Oops! No results found. Please try again."
 };
 
 function renderSingleArticle(article) {
