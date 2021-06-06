@@ -1,4 +1,5 @@
 const baseUrl = 'https://api.nytimes.com/svc/topstories/v2/us.json?api-key=FdPUu6Ng9dn4hBxqWZuiG6vwMqdTPXDj';
+let newsArticles = [];
 
 document.addEventListener('DOMContentLoaded', () => fetchAllArticles());
 
@@ -7,14 +8,17 @@ document.addEventListener('DOMContentLoaded', () => fetchAllArticles());
     .then((response) => response.json())
     .then((jsonData) => {
       console.log(jsonData)
-      const row = document.getElementById('article-row')
-       row.innerHTML = renderAllArticles(jsonData)
+      newsArticles = jsonData.results;
+      console.log(newsArticles)
+      renderAllArticles(newsArticles)
     })
   };
 
   function renderAllArticles(articleArray) {
-     let results = articleArray.results.slice(0, 31);
-    return results.map(renderSingleArticle).join('');
+    const row = document.getElementById('article-row')
+     let results = articleArray.slice(0, 31);
+    const html = results.map(renderSingleArticle).join('');
+    row.innerHTML = html;
 };
 
 function renderSingleArticle(article) {
