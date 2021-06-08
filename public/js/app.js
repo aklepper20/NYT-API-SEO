@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => fetchAllArticles());
     fetch(baseUrl)
     .then((response) => response.json())
     .then((jsonData) => {
-      // console.log(jsonData)
+      console.log(jsonData)
       newsArticles = jsonData.results;
       renderAllArticles(newsArticles)
     })
@@ -15,9 +15,10 @@ document.addEventListener('DOMContentLoaded', () => fetchAllArticles());
 
   function renderAllArticles(articleArray) {
     const row = document.getElementById('article-row')
-     let results = articleArray.slice(0, 31);
+    let results = articleArray.slice(0, 31);
     const html = results.map(renderSingleArticle).join('');
-    (html) ? row.innerHTML = html : row.innerHTML = "Oops! No results found. Please try again."
+
+    (html) ? row.innerHTML = html : row.innerHTML = `<div class="no-results-container"><p class="no-results"> Oops! <i class="far fa-frown-open"></i></i> No results found. Please try again.</p></div>`
 };
 
 function renderSingleArticle(article) {
