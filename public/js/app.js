@@ -31,7 +31,7 @@ function renderSingleArticle(article) {
       <img src=${url} alt="CurrentNews">
       <div class="article-card-text>
         <p class="abstract">${article.abstract}</p>
-        <a href=${article.short_url} target="blank">Click here to read more...</a>
+        <a href=${article.short_url} target="blank">Click on this link to read more...</a>
       </div>
     </div>
   </div>
