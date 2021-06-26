@@ -32,7 +32,7 @@ const url = article && article.multimedia ? `${article.multimedia[0].url}` : '';
       <img src=${url} alt="Current News">
       <div class="article-card-text>
         <p class="abstract">${article.abstract}</p>
-        <a href=${article.short_url} target="blank">Click here to read more...</a>
+        <a href=${article.short_url} target="blank" title="Click link to go to news article">Click here to read more...</a>
       </div>
     </div>
   </div>
