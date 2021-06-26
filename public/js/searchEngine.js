@@ -7,7 +7,7 @@ searchBar.addEventListener('keyup', (e) => {
     return (
     article.title.includes(searchTarget) ||
     article.abstract.includes(searchTarget)
-    );
+    )
   });
   renderAllArticles(filteredArticles);
 });

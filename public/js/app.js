@@ -18,20 +18,21 @@ document.addEventListener('DOMContentLoaded', () => fetchAllArticles());
     let results = articleArray.slice(0, 31);
     const html = results.map(renderSingleArticle).join('');
 
-    (html) ? row.innerHTML = html : row.innerHTML = `<div class="no-results-container"><p class="no-results"> Oops! <i class="far fa-frown-open"></i></i> No results found. Please try again.</p></div>`
+    (html) ? row.innerHTML = html : row.innerHTML = `<div class="no-results-container"><p class="no-results"> Oops! <i class="far fa-frown-open"></i> No results found. Please try again.</p></div>`
 };
 
 function renderSingleArticle(article) {
-  const url = `${article.multimedia[0].url}`;
+
+const url = article && article.multimedia ? `${article.multimedia[0].url}` : '';
 
   return `
   <div class="column-third">
     <div class="article-card">
-    <h2 class="news-title">${article.title}</h2>
-      <img src=${url} alt="CurrentNews">
+      <h2 class="news-title">${article.title}</h2>
+      <img src=${url} alt="Current News">
       <div class="article-card-text>
         <p class="abstract">${article.abstract}</p>
-        <a href=${article.short_url} target="blank">Click on this link to read more...</a>
+        <a href=${article.short_url} target="blank">Click here to read more...</a>
       </div>
     </div>
   </div>
